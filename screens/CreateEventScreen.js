@@ -62,7 +62,7 @@ const CreateEventScreen = ({ navigation }) => {
     try {
       const response = await fetch(url);
       const blob = await response.blob();
-
+      console.log(blob)
       if (blob.size === 0) {
         console.error("Error uploading image: Empty file.");
         return null;
@@ -86,7 +86,7 @@ const CreateEventScreen = ({ navigation }) => {
         return null;
       }
 
-      return data.url;
+      return data.url[0];
     } catch (error) {
       console.error("Error uploading image:", error.message);
       return null;
